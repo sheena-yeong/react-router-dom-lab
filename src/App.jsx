@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import MailboxDetails from "./components/MailboxDetails/MailboxDetails";
 import MailboxForm from "./components/MailboxForm/MailboxForm";
 import MailboxList from "./components/MailboxList/MailboxList";
@@ -11,6 +11,8 @@ function App() {
   function addBox(formData) {
     setMailboxes([...mailboxes, formData]);
   }
+
+  console.log(mailboxes);
 
   return (
     <>
@@ -24,9 +26,9 @@ function App() {
             </main>
           }
         />
-        <Route path="mailboxes" element={<MailboxList />} />
+        <Route path="/mailboxes" element={<MailboxList mailboxes={mailboxes}/>} />
         <Route path="/new-mailbox" element={<MailboxForm addBox={addBox} />} />
-        <Route path="/mailboxes/:mailboxId" element={<MailboxDetails />} />
+        <Route path="/mailboxes/:mailboxId" element={<MailboxDetails mailboxes={mailboxes}/>} />
       </Routes>
     </>
   );

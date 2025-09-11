@@ -5,7 +5,7 @@ function NavBar() {
     <>
       <div className="links">
         <Link to={"/"}>Home</Link>
-        <Link to={"/mailboxes"}>MailboxList</Link>
+        <Link to={"/mailboxes"}>Mailboxes</Link>
         <Link to={"/new-mailbox"}>New Mailbox</Link>
       </div>
     </>
