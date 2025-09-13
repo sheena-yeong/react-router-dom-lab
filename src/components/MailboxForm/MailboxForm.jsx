@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function MailboxForm({ addBox }) {
   const [formData, setFormData] = useState([]);
+
+  const navigate = useNavigate();
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -16,6 +19,7 @@ function MailboxForm({ addBox }) {
     if (!formData.boxOwner || !formData.boxSize) return
     addBox(formData);
     setFormData({ boxOwner: "", boxSize: "Select Size" });
+    navigate("/mailboxes");
   }
 
   return (
